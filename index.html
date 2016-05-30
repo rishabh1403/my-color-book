@@ -1,11 +1,15 @@
 <html ng-app="myColorBook">
   <head>
     <title>My Color Book</title>
+    <link href="style.css" rel="stylesheet">
   <head>
-  <body style="margin : 0" ng-controller="mainCtrl">
+  <body ng-controller="mainCtrl">
     <canvas id="myCanvas">
 
     </canvas>
+    <div>
+      <button ng-click="colorChange('red')">red</button>
+    </div>
     <script src="angular.js"></script>
 
     <script src="main.js"></script>
