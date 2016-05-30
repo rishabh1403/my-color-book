@@ -8,11 +8,23 @@
     canvas.height="500";
     //canvas.width = window.innerWidth;
     //canvas.height = window.innerHeight;
+  //  context.globalAlpha = 0.7;
     var radius = 10;
     var drag = false;
+    var imageObj = new Image();
+context.globalCompositeOperation = "multiply";
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 69, 50);
+      };
+      imageObj.src = 'download.png';
     $scope.colorChange = function(color){
       context.strokeStyle = color;
       context.fillStyle = color;
+    };
+    $scope.radiusChange = function(size) {
+      radius = size;
+      context.lineWidth = radius*2;
+
     }
     context.lineWidth = radius*2;
     var putPoint = function (e) {
@@ -26,6 +38,8 @@
         context.moveTo(e.offsetX,e.offsetY);
       }
     }
+    var imageData = context.getImageData(0,0,canvas.width,canvas.height);
+    console.log(imageData);
     var engage = function(e){
       drag = true;
       putPoint(e);
@@ -35,6 +49,8 @@
       context.beginPath();
     }
     canvas.addEventListener('mouseup',disengage);
+    canvas.addEventListener('mouseleave',disengage);
+
     canvas.addEventListener('mousedown',engage);
     canvas.addEventListener('mousemove',putPoint);
 
