@@ -8,7 +8,7 @@
     canvas.height="500";
     //canvas.width = window.innerWidth;
     //canvas.height = window.innerHeight;
-  //  context.globalAlpha = 0.7;
+  //context.globalAlpha = 0.7;
     var radius = 10;
     var drag = false;
     var imageObj = new Image();
@@ -17,7 +17,7 @@
       imageObj.onload = function() {
         context.drawImage(imageObj, 69, 50);
      };
-      imageObj.src = 'download.png';
+      imageObj.src = 'rhino4.png';
       $scope.eraseParts = function(){
         context.strokeStyle = 'white';
         context.fillStyle = 'white';

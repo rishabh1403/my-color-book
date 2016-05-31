@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+
+<body>
+<!-- <h4>Original Image</h4>
+<img id="testImage" src='test.jpg'/>
+
+<h4>Image copied to canvas</h4> -->
+<canvas id="canvas" width="800" height="800"></canvas>
+
+<h4>Modified Image copied to an image tag</h4>
+<img id="imageData"/>
+
+<script>
+
+var canvas = document.getElementById("canvas"),
+ctx = canvas.getContext("2d"),
+//image = document.getElementById("testImage");
+ image = new Image();
+//context.globalCompositeOperation='source-ove';
+//context.globalCompositeOperation = "multiply";
+  image.onload = function() {
+    ctx.drawImage(image, 0, 0);
+
+    var imgd = ctx.getImageData(0, 0, image.width, image.height),
+     pix = imgd.data,
+     uniqueColor = [0,0,150]; // Blue for an example, can change this value to be anything.
+    //console.log(pix);
+    for (var i = 0, n = pix.length; i <n; i += 4) {
+      if (pix[i] > 200 &&
+        pix[i+1] > 200 &&
+        pix[i+2] > 200)
+    {
+        pix[i+3] = 0;
+        console.log(true);
+  }else{
+    pix[i] = 0;
+      pix[i+1] = 0;
+        pix[i+2] = 0;
+          pix[i+3] = 255;
+  }
+    }
+    //console.log(pix);
+    ctx.putImageData(imgd, 0, 0);
+    var savedImageData = document.getElementById("imageData");
+    savedImageData.src = canvas.toDataURL("image/png");
+ };
+  image.src = 'test.jpg';
+//ctx.drawImage(image,0,0);
+
+// Loops through all of the pixels and modifies the components.
+//for (var i = 0, n = pix.length; i <n; i += 4) {
+  // pix[i] = uniqueColor[0];   // Red component
+  // pix[i+1] = uniqueColor[1]; // Blue component
+   //pix[i+2] = uniqueColor[2]; // Green component
+   //pix[i+3] is the transparency.
+//}
+
+
+// var savedImageData = document.getElementById("imageData");
+// savedImageData.src = canvas.toDataURL("image/png");
+</script>
+</body>
+</html>
