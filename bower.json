@@ -1,0 +1,21 @@
+{
+  "name": "my-color-book",
+  "homepage": "https://github.com/rishabh1403/my-color-book",
+  "authors": [
+    "Rishabh Jain <mailrishabh1403@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-socket-io": "^0.7.0"
+  }
+}
