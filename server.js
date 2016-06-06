@@ -5,6 +5,7 @@ var cors = require('cors');
 //     origin: 'http://localhost:8000/',
 //     credentials: true
 // }));
+app.use(express.static('public'));
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var sid = [];
