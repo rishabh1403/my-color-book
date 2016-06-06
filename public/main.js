@@ -14,10 +14,10 @@
     var data = "this is good";
     Socket.on("connect",function(){
       Socket.emit("message",data);
-        alert(this.id);
+        //alert(this.id);
     });
     Socket.on("message",function (data) {
-      alert(data);
+      //alert(data);
     })
 
     var canvas = document.getElementById("myCanvas");

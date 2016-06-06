@@ -1,9 +1,116 @@
-body{
-   margin : 0;
+body {
+    margin: 0;
+    background-color: #0A0A25;
 }
-#myCanvas{
-  margin-left: 30%;
-  margin-top: 2%;
-  border:2px black solid;
-  /*background: url('download.png') no-repeat;*/
+.mainBody {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+.siteContent {
+    margin: 20px;
+}
+.rightDiv {
+    float: right;
+}
+.leftDiv {
+    float: left;
+    background-color: white;
+    margin: 40px 0px 0px 40px;
+    padding: 20px;
+    border-width: 5px;
+    border-style: inset;
+    border-radius: 30px;
+    border-color: wheat;
+}
+.middleDiv {
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+}
+.colorButtons {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-color: black;
+    border-width: 5px;
+    margin: 5px;
+}
+#redColorButton {
+    background-color: red;
+}
+#greenColorButton {
+    background-color: green;
+}
+#yellowColorButton {
+    background-color: yellow;
+}
+#brownColorButton {
+    background-color: brown;
+}
+#purpleColorButton {
+    background-color: purple;
+}
+#blackColorButton {
+    background-color: black;
+}
+#tenRadius {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-color: black;
+    border-width: 2px;
+    margin: 5px;
+    background-color: white;
+}
+#fiveRadius {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-color: black;
+    border-width: 2px;
+    margin: 5px;
+    background-color: white;
+}
+#twoRadius {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-color: black;
+    border-width: 2px;
+    margin: 15px;
+    background-color: white;
+}
+#oneRadius {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-color: black;
+    border-width: 2px;
+    margin: 18px;
+    background-color: white;
+}
+.colorButtonsContainer{
+    text-align: center;
+}
+.optionHeading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0px 10px 0px;
+}
+.canvasConatiner{
+    margin: 40px;
+    padding: 50px;
+}
+.eraserButton{
+    width: 80px;
+    height: 80px;
+}
+#myCanvas {
+    margin-top: 2%;
+    background-color: white;
+    border-radius: 50px;
+    border: 5px solid black;
+    /*background: url('download.png') no-repeat;*/
 }

@@ -9,13 +9,6 @@ app.use(express.static('public'));
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var sid = [];
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
-
-//io.set('origins', 'http://localhost:8000');
 io.on("connection",function(socket){
 sid.push(socket.id);
 socket.join('room1');
@@ -28,7 +21,7 @@ socket.join('room1');
     console.log(data);
     var replyData = "this is very good";
     console.log(sid);
-    io.to('room1').emit("message",replyData);
+    //io.to('room1').emit("message",replyData);
   });
 
   socket.on("engage",function(data){
