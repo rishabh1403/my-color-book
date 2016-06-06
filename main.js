@@ -1,7 +1,7 @@
 (function(){
   var app = angular.module("myColorBook",['btford.socket-io']);
   app.factory('Socket', function (socketFactory) {
-  var myIoSocket = io.connect('http://localhost:3000');
+  var myIoSocket = io.connect('http://172.16.1.31:3000');
 
   mySocket = socketFactory({
     ioSocket: myIoSocket
@@ -13,8 +13,8 @@
 
     var data = "this is good";
     Socket.on("connect",function(){
-      //Socket.emit("message",data);
-      //alert(this.id);
+      Socket.emit("message",data);
+        alert(this.id);
     });
     Socket.on("message",function (data) {
       alert(data);

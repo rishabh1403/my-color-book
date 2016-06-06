@@ -1,9 +1,23 @@
 var express = require('express');
 var app = express();
+var cors = require('cors');
+// app.use(cors({
+//     origin: 'http://localhost:8000/',
+//     credentials: true
+// }));
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+var sid = [];
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
+//io.set('origins', 'http://localhost:8000');
 io.on("connection",function(socket){
+sid.push(socket.id);
+socket.join('room1');
   console.log("a new client connection");
   socket.on("disconnect",function(){
     console.log("a client disconnected");
@@ -12,7 +26,8 @@ io.on("connection",function(socket){
   socket.on("message",function (data) {
     console.log(data);
     var replyData = "this is very good";
-    io.emit("message",replyData);
+    console.log(sid);
+    io.to('room1').emit("message",replyData);
   });
 
   socket.on("engage",function(data){
