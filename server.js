@@ -21,7 +21,7 @@ socket.join('room1');
     console.log(data);
     var replyData = "this is very good";
     console.log(sid);
-    //io.to('room1').emit("message",replyData);
+    io.to('room1').emit("message",data);
   });
 
   socket.on("engage",function(data){

@@ -10,16 +10,31 @@
   return mySocket;
 });
   app.controller('mainCtrl',['$scope','Socket',function($scope,Socket){
-
-    var data = "this is good";
+     $scope.msg = [];
+     $scope.chatMessage = "";
+    var data = {};
+    $scope.sid = undefined;
     Socket.on("connect",function(){
+        $scope.sid = this.id;
+        data = {
+            id : $scope.sid,
+            msg : "A new client connected"
+
+        }
       Socket.emit("message",data);
         //alert(this.id);
     });
     Socket.on("message",function (data) {
-      //alert(data);
+      $scope.msg.push(data);
     })
-
+    $scope.sendMessage = function () {
+        data = {
+            id : $scope.sid,
+            msg : $scope.chatMessage
+        }
+        Socket.emit("message",data);
+        $scope.chatMessage = "";
+    }
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
     canvas.width="600";

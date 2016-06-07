@@ -11,7 +11,12 @@ body {
     margin: 20px;
 }
 .rightDiv {
-    float: right;
+    float: left;
+    margin-top: 70px;
+    width: 280px;
+    height: 450px;
+    background-color: white;
+    position: relative;
 }
 .leftDiv {
     float: left;
@@ -24,9 +29,30 @@ body {
     border-color: wheat;
 }
 .middleDiv {
-    margin-left: 200px;
+    float: left;
+    margin-top: -30px;
+    /*margin-left: 200px;
     margin-right: 200px;
-    text-align: center;
+    text-align: center;*/
+}
+.textWindow {
+    position: absolute;
+    bottom: 0;
+}
+.msgSendButton {
+    float: right;
+    width: 46px;
+    height: 48px;
+}
+.messageContainer{
+    overflow-y: scroll;
+    height: 90%;
+}
+.chatImageRight{
+    float:right;
+}
+.chatImageLeft{
+    float: left;
 }
 .colorButtons {
     border-radius: 50%;
@@ -90,7 +116,7 @@ body {
     margin: 18px;
     background-color: white;
 }
-.colorButtonsContainer{
+.colorButtonsContainer {
     text-align: center;
 }
 .optionHeading {
@@ -99,11 +125,11 @@ body {
     font-size: 20px;
     margin: 10px 0px 10px 0px;
 }
-.canvasConatiner{
+.canvasConatiner {
     margin: 40px;
     padding: 50px;
 }
-.eraserButton{
+.eraserButton {
     width: 80px;
     height: 80px;
 }

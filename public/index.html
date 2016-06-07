@@ -49,10 +49,31 @@
                       </canvas>
                   </div>
 
+
               </div>
-              <!-- <div class="rightDiv">
-                  space for extra options
-              </div> -->
+              <div class="rightDiv">
+                  <div class="optionHeading">
+                      Chat Window
+                  </div>
+                  <div class="messageContainer">
+                      <div ng-repeat="message in msg">
+                          <div class="chatImage" ng-class="message.id===sid ? 'chatImageRight' : 'chatImageLeft'">
+                              <img src="boy.png" alt="" />
+                          </div>
+                            <div>
+                                {{message.msg}}
+                            </div>
+                            <hr />
+                      </div>
+
+                  </div>
+
+                 <div class="textWindow">
+                     <textarea  name="name" value="" rows="3" cols="25" ng-model="chatMessage"></textarea>
+                     <button type="button" ng-click="sendMessage()" class="msgSendButton">Send</button>
+                 </div>
+             </div>
+             <br style="clear: left;" />
           </div>
       </div>
 
