@@ -36,12 +36,6 @@ socket.join('room1');
       io.emit("disengage",data);
     })
 
-    socket.on("colorChange",function(data){
-      io.emit("colorChange",data);
-    })
-    socket.on("radiusChange",function(data){
-      io.emit("radiusChange",data);
-    })
 })
 
 server.listen(3000,function () {

@@ -140,3 +140,10 @@ body {
     border: 5px solid black;
     /*background: url('download.png') no-repeat;*/
 }
+#myCanvas1 {
+    margin-top: 2%;
+    background-color: white;
+    border-radius: 50px;
+    border: 5px solid black;
+    /*background: url('download.png') no-repeat;*/
+}
