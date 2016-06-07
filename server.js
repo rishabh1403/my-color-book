@@ -35,6 +35,12 @@ socket.join('room1');
     socket.on("disengage",function(data){
       io.emit("disengage",data);
     })
+    socket.on("typing",function(data){
+      io.emit("typing",data);
+    })
+    socket.on("stop typing",function(data){
+      io.emit("stop typing",data);
+    })
 
 })
 

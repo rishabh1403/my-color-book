@@ -47,7 +47,7 @@
                       <canvas id="myCanvas">
                           Please Update your browser , The app is not supported for your browser!!!.
                       </canvas>
-                      
+
                       <!-- <canvas id="myCanvas1">
                           Please Update your browser , The app is not supported for your browser!!!.
                       </canvas> -->
@@ -57,7 +57,7 @@
               </div>
               <div class="rightDiv">
                   <div class="optionHeading">
-                      Chat Window
+                      {{statusMessage}}
                   </div>
                   <div class="messageContainer">
                       <div ng-repeat="message in msg">
@@ -73,7 +73,7 @@
                   </div>
 
                  <div class="textWindow">
-                     <textarea  name="name" value="" rows="3" cols="25" ng-model="chatMessage"></textarea>
+                     <textarea  name="name" value="" ng-change="updateTyping()" rows="3" cols="25" ng-model="chatMessage"></textarea>
                      <button type="button" ng-click="sendMessage()" class="msgSendButton">Send</button>
                  </div>
              </div>

@@ -9,8 +9,9 @@
 
   return mySocket;
 });
-  app.controller('mainCtrl',['$scope','Socket',function($scope,Socket){
+  app.controller('mainCtrl',['$scope','Socket','$timeout',function($scope,Socket,$timeout){
      $scope.msg = [];
+     $scope.statusMessage = "Chat Window";
      var audioin = new Audio('in.mp3');
      var audioout = new Audio('out.mp3');
      $scope.chatMessage = "";
@@ -44,6 +45,33 @@
         Socket.emit("message",data);
         $scope.chatMessage = "";
     }
+
+    ///////////
+    var typing = false;
+    var typeLength = 2000;
+    $scope.updateTyping = function () {
+        if(!typing){
+            typing = true;
+            Socket.emit("typing",{id:$scope.sid});
+        }
+
+        lastTime = (new Date()).getTime();
+        $timeout(function () {
+            diff = (new Date()).getTime() - lastTime;
+            if(diff>2000 && typing){
+                typing = false;
+                Socket.emit("stop typing",{id:$scope.sid});
+            }
+        }, 2000);
+    }
+    Socket.on("typing",function (data) {
+        $scope.statusMessage = "your friend is typiing";
+    });
+    Socket.on("stop typing",function (data) {
+        $scope.statusMessage = "chat window";
+    });
+
+    ///////
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
     canvas.width="600";
